@@ -15,6 +15,6 @@ abstract class StegoMethod(
     abstract fun extract(): String?
 
     enum class Algorithm {
-        KUTTER, COX
+        KUTTER, COX, LSB
     }
 }

@@ -2,6 +2,7 @@ package com.staboss.stego.pattern.factory
 
 import com.staboss.stego.algorithm.StegoCOX
 import com.staboss.stego.algorithm.StegoKDB
+import com.staboss.stego.algorithm.StegoLSB
 import com.staboss.stego.algorithm.StegoMethod
 import com.staboss.stego.algorithm.StegoMethod.Algorithm
 import com.staboss.stego.model.StegoData
@@ -13,6 +14,7 @@ object StegoFactory {
         when (algorithm) {
             Algorithm.KUTTER -> StegoKDB(sourceImage, secretImage, secretKey, message)
             Algorithm.COX -> StegoCOX(sourceImage, secretImage, secretKey, message)
+            Algorithm.LSB -> StegoLSB(sourceImage, secretImage, secretKey, message)
         }
     }
 
@@ -26,5 +28,6 @@ object StegoFactory {
         when (algorithm) {
             Algorithm.KUTTER -> StegoKDB(sourceImageFile, secretImageFile, secretKeyFile, secretMessage)
             Algorithm.COX -> StegoCOX(sourceImageFile, secretImageFile, secretKeyFile, secretMessage)
+            Algorithm.LSB -> StegoLSB(sourceImageFile, secretImageFile, secretKeyFile, secretMessage)
         }
 }

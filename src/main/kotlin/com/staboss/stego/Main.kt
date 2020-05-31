@@ -70,5 +70,6 @@ fun main(args: Array<String>) {
 private fun getAlgorithm(algorithm: String): StegoMethod.Algorithm? = when (algorithm.toUpperCase()) {
     "KUTTER", "KDB" -> StegoMethod.Algorithm.KUTTER
     "COX" -> StegoMethod.Algorithm.COX
+    "LSB" -> StegoMethod.Algorithm.LSB
     else -> null
 }
