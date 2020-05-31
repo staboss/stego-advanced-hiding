@@ -73,7 +73,7 @@ public final class Parser {
     }
 
     public static void usage() {
-        System.err.println("usage: java -jar stego-app.jar -e|-d -a METHOD -s FILE [-r FILE] [-f FILE] -k FILE\n");
+        System.err.println("usage: java -jar stego-advanced-hiding.jar -e|-d -a METHOD -s FILE [-r FILE] [-f FILE] -k FILE\n");
         System.err.println(arguments);
     }
 
