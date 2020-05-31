@@ -59,7 +59,6 @@ class StegoKDBTest {
         }
 
         val difference = total / n
-        println(difference)
         assertEquals(0.0, difference, 15.0)
     }
 }

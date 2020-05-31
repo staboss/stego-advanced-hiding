@@ -6,6 +6,7 @@ import com.staboss.stego.util.requireOrExit
 import com.staboss.stego.util.toBinary
 import com.staboss.stego.util.toText
 import java.io.File
+import java.lang.NumberFormatException
 import com.staboss.stego.util.StegoMath as stegoMath
 
 class StegoCOX(
@@ -76,7 +77,7 @@ class StegoCOX(
             }
         }
 
-        writeImage(secretImage?: File("secret_image.bmp"))
+        writeImage(secretImage ?: File("secret_image.bmp"))
         return true
     }
 
@@ -126,9 +127,15 @@ class StegoCOX(
                     counter = 0
                 }
 
-                if (message.isNotEmpty() && message.last() == delimiter && length == null) {
-                    length = message.substring(0, message.lastIndex).toInt().run {
-                        this + this.toString().length + 1
+                try {
+                    if (message.isNotEmpty() && message.last() == delimiter && length == null) {
+                        length = message.substring(0, message.lastIndex).toInt().run {
+                            this + this.toString().length + 1
+                        }
+                    }
+                } catch (e: NumberFormatException) {
+                    requireOrExit(false) {
+                        "Image is damaged"
                     }
                 }
 

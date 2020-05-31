@@ -96,6 +96,9 @@ class StegoKDB(
             }
         } catch (e: Exception) {
             println("Secret key file or image-container could be damaged")
+            requireOrExit(false) {
+                "Algorithm Failed"
+            }
             null
         }
     }
