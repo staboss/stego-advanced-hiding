@@ -27,10 +27,8 @@ class StegoKDBTest {
         val method = StegoKDB(sourceImageFile, secretKey = secretKeyFile)
         val result = method.extract()
 
-        println(result)
-
         val difference = getDiff(SMALL_MESSAGE, result ?: error("RESULT IS NULL"))
-        assertEquals(0.0, difference, 15.0)
+        assertEquals(0.0, difference, 25.0)
     }
 
     @Test
@@ -42,7 +40,7 @@ class StegoKDBTest {
         var methodEmbed: StegoMethod
         var methodExtract: StegoMethod
 
-        val n = 50
+        val n = 10
         var total = 0.0
         var result: String?
 

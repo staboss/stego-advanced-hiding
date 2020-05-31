@@ -26,7 +26,7 @@ public final class Parser {
     @Option(name = "-f", usage = "file with secret message", metaVar = "FILE")
     public String messageFile;
 
-    @Option(name = "-m", usage = "steganographic method [KUTTER, COX, LSB, DCT]", required = true, metaVar = "METHOD")
+    @Option(name = "-m", usage = "steganographic method [KUTTER, COX, LSB]", required = true, metaVar = "METHOD")
     public String algorithm;
 
     private static Parser parser = null;
@@ -84,5 +84,5 @@ public final class Parser {
             "  -r FILE      : result img file\n" +
             "  -k FILE      : secret key file\n" +
             "  -f FILE      : secret msg file\n" +
-            "  -m METHOD    : steganographic method [KUTTER, COX, LSB, DCT]";
+            "  -m METHOD    : steganographic method [KUTTER, COX, LSB]";
 }
