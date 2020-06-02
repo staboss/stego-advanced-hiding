@@ -15,8 +15,8 @@ class StegoKDB(
     message: String? = null
 ) : StegoMethod(sourceImage, secretImage, secretKey, message) {
 
-    private val sigma = 1
-    private val lamda = 0.1
+    private val sigma = 3
+    private val lamda = 0.2
 
     private val initialState = "0000"
     private val polynomialFirst = "11001"
@@ -58,7 +58,9 @@ class StegoKDB(
         try {
             encoded.toList().toObservable()
                 .subscribeBy(
-                    onComplete = { writeImage(secretImage ?: File("secret_image.bmp"), newBlue = newBlue) },
+                    onComplete = {
+                        writeImage(secretImage ?: File("secret_image.bmp"), newBlue = newBlue)
+                    },
                     onNext = { bit ->
                         p = randomPixel(pixels)
                         newBlue[p.first][p.second] = changeBlueValue(

@@ -1,5 +1,7 @@
 package com.staboss.stego.util
 
+const val DELTA = 5.0
+
 const val SOURCE_IMAGE_PATH = "src/test/resources/src.bmp"
 const val RESULT_IMAGE_PATH = "src/test/resources/res.bmp"
 
@@ -13,7 +15,7 @@ const val KEY_FILE_PATH = "src/test/resources/key.txt"
 const val DATA_FILE_PATH_KDB = "src/test/resources/data_kutter.csv"
 const val DATA_FILE_PATH_COX = "src/test/resources/data_cox.csv"
 
-const val SMALL_MESSAGE = "Copyright is a type of intellectual property that gives " +
+const val MESSAGE = "Copyright is a type of intellectual property that gives " +
         "its owner the exclusive right to make copies of a creative work, usually for a limited time."
 
 const val BIG_MESSAGE =

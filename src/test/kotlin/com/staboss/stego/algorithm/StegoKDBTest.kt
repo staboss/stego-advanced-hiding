@@ -13,7 +13,7 @@ class StegoKDBTest {
         val secretImageFile = File(SECRET_IMAGE_PATH_KDB)
         val secretKeyFile = File(KEY_FILE_PATH)
 
-        val method = StegoKDB(sourceImageFile, secretImageFile, secretKeyFile, SMALL_MESSAGE)
+        val method = StegoKDB(sourceImageFile, secretImageFile, secretKeyFile, MESSAGE)
         val result = method.embed()
 
         assertEquals(true, result)
@@ -27,8 +27,10 @@ class StegoKDBTest {
         val method = StegoKDB(sourceImageFile, secretKey = secretKeyFile)
         val result = method.extract()
 
-        val difference = getDiff(SMALL_MESSAGE, result ?: error("RESULT IS NULL"))
-        assertEquals(0.0, difference, 25.0)
+        val difference = getDiff(MESSAGE, result ?: error("RESULT IS NULL"))
+        // println(String.format("%.2f", difference).replace(",", ".") + " %")
+
+        assertEquals(0.0, difference, DELTA)
     }
 
     @Test
@@ -45,13 +47,13 @@ class StegoKDBTest {
         var result: String?
 
         repeat(n) {
-            methodEmbed = StegoKDB(sourceImageFile, secretImageFile, secretKeyFile, SMALL_MESSAGE)
+            methodEmbed = StegoKDB(sourceImageFile, secretImageFile, secretKeyFile, MESSAGE)
             methodEmbed.embed()
 
             methodExtract = StegoKDB(secretImageFile, secretKey = secretKeyFile)
             result = methodExtract.extract()
 
-            total += getDiff(SMALL_MESSAGE, result ?: error("RESULT IS NULL"))
+            total += getDiff(MESSAGE, result ?: error("RESULT IS NULL"))
         }
 
         val difference = total / n

@@ -29,6 +29,6 @@ class StegoCOXTest {
 
         val difference = getDiff(BIG_MESSAGE, result ?: error("RESULT IS NULL"))
 
-        assertEquals(0.0, difference, 5.0)
+        assertEquals(0.0, difference, DELTA)
     }
 }
