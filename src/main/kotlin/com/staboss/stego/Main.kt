@@ -64,7 +64,7 @@ fun main(args: Array<String>) {
         println("$result\n")
     }
 
-    println("ALGORITHM COMPLETED in ${if (time < 1000) "$time ms" else "${time / 1000}s"}")
+    println("ALGORITHM COMPLETED in ${if (time < 1000) "$time ms" else "${time / 1000} s"}")
 }
 
 private fun getAlgorithm(algorithm: String): StegoMethod.Algorithm? = when (algorithm.toUpperCase()) {
